@@ -1,4 +1,4 @@
-//###################################################################
+// ##############################################################
 //        __
 //   ____/ /___  ____ ______
 //  / __  / __ \/ __ `/ ___/
@@ -13,9 +13,6 @@ function Dog (status, color, hungry, owner) {
   this.hungry = hungry
   this.owner = owner
 }
-
-Dog.prototype = new Human()
-
 // Instances of Dog
 // Needed: sadie, moonshine, atticus
 
@@ -32,20 +29,17 @@ const atticus = new Dog('normal', 'grey', true)
 // Human Constructor & Prototype
 function Human (cool, feed, pet) {
   this.cool = cool
-  this.feed = function () {
-    return this.hungry
+  this.feed = function (dog) {
+     // dog param can be anything as long as it matches return statement.
+    return dog.hungry = false
   }
-  this.pet = function () {
-    return this.status
+  this.pet = function (dog) {
+    return dog.status = 'happy'
   }
 }
-const mason = new Human(false)
-const julia = new Human(true)
-
-julia.feed(moonshine)
-mason.pet(sadie)
-
-sadie.owner = mason
 
 // Instances of Human
 // Needed: mason, julia
+
+const julia = new Human(true)
+const mason = new Human(false)
